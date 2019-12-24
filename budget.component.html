@@ -1,0 +1,84 @@
+<div class="top">
+    <div class="budget">
+        <div class="budget__title">
+            Available Budget in <span class="budget__title--month">%Month%</span>:
+        </div>
+        
+        <div class="budget__value">{{total}}</div>
+        
+        <div class="budget__income clearfix"> 
+            <div class="budget__income--text">Income</div>
+            <div class="right">
+                <div class="budget__income--value" >{{income}}</div>
+                <div class="budget__income--percentage">&nbsp;</div>
+            </div>
+        </div>
+        <div class="budget__expenses clearfix">
+            <div class="budget__expenses--text">Expenses</div>
+            <div class="right clearfix">
+                <div class="budget__expenses--value">{{expense}}</div>
+                <!-- <div class="budget__expenses--percentage">45%</div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bottom">
+    <div class="add">
+        <div class="add__container">
+            <select class="add__type">
+                <option value="inc" selected>+</option>
+                <option value="exp">-</option>
+            </select>
+            <input type="text" class="add__description" id="place"name="model"[(ngModel)]="description" placeholder="Add description">
+            <input type="number" class="add__value"id="holder" name="models" [(ngModel)]="value" placeholder="Value">
+            <!-- <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button> -->
+            <button type="button" class="btn btn-primary"(click)="add()">click</button>
+        </div>
+    </div>
+    
+    <div class="container clearfix">
+        <div class="income">
+            <h2 class="icome__title">Income</h2>
+            
+            <div class="income__list">
+               
+                
+                <div class="item clearfix" id="income-0" *ngFor="let num of datatable;let i = index">
+                    <div class="item__description"  id="des" name="description">{{num.descrip}}</div>
+                    <div class="right clearfix" >
+                        <div class="item__value"id="val"name="value">{{num.val}}</div>
+                        <div class="item__delete">
+                            <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                        </div>
+                    </div>
+                </div> 
+                
+               
+            </div>
+        </div>
+        
+        
+        
+        <div class="expenses">
+            <h2 class="expenses__title">Expenses</h2>
+            
+            <div class="expenses__list">
+               
+                <div class="item clearfix" id="expense-0" *ngFor="let num of datatable2">
+                    <div class="item__description">{{num.descrip2}}</div>
+                    <div class="right clearfix">
+                        <div class="item__value">{{num.val2}}</div>
+                        <!-- <div class="item__percentage">21%</div> -->
+                        <div class="item__delete">
+                            <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
